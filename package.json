@@ -1,0 +1,35 @@
+{
+  "name": "@linonetwo012/communism-report-generator",
+  "version": "1.0.0",
+  "description": "共产中文报告生成器，用于生成有伏特加味的参水报告",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-standard": "4.0.1",
+    "eslint-plugin-unicorn": "^18.0.1",
+    "prettier": "^2.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linonetwo/communism-report-generator.git"
+  },
+  "author": "lin onetwo",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/linonetwo/communism-report-generator/issues"
+  },
+  "homepage": "https://github.com/linonetwo/communism-report-generator#readme"
+}
