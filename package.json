@@ -11,8 +11,10 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "nlcst-to-string": "^2.0.4",
+    "nlcst-types": "^1.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "unist-builder": "^2.0.3",
     "unist-util-is": "^4.0.2",
     "unist-util-select": "^3.0.1",
     "unist-util-visit": "^2.0.2",

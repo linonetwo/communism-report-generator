@@ -1,4 +1,6 @@
 import { compact, trim } from 'lodash';
+import { TextNode, Sentence, Paragraph, Word } from 'nlcst-types';
+import u from 'unist-builder';
 
 export const 正面短语 = {
   推进工作: 认真学习`
@@ -45,10 +47,10 @@ export const 中立内容 = {
 };
 
 /** 通过认真领会精神，把一个包含学习资料的字符串变为 UNIST（此处为 NLCST）节点，并保留待填入具体内容的槽，成为一个模板 CST */
-function 认真学习(共产中文模板: TemplateStringsArray) {
+function 认真学习(共产中文模板: TemplateStringsArray): Sentence {
   // 取出字符串内容，并去掉空行和空白
   const lines = compact(compact(共产中文模板[0].split('\n')).map((line) => trim(line)));
-  const unistWordNodes = lines.map((line) => {
+  const unistWordNodes: Word[] = lines.map((line) => {
     // 把模板变成 UNIST 节点
     const leafTemplateFragmentNodes = line.split(/({{正面工作}}|{{负面工作}})/g).map((value) => ({
       type: 'TextNode',
@@ -58,6 +60,6 @@ function 认真学习(共产中文模板: TemplateStringsArray) {
     }));
     return { type: 'WordNode', children: leafTemplateFragmentNodes };
   });
-  const sentenceUnistNode = { type: 'SentenceNode', children: unistWordNodes };
+  const sentenceUnistNode = u('SentenceNode', {children: unistWordNodes });
   return sentenceUnistNode;
 }
