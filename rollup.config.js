@@ -6,7 +6,7 @@ import replace from '@rollup/plugin-replace';
 export default {
   input: 'app.tsx',
   output: {
-    file: 'dist/bundle.js',
+    file: 'public/bundle.js',
     format: 'iife',
   },
   plugins: [

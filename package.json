@@ -4,7 +4,7 @@
   "description": "共产中文报告生成器，用于生成有伏特加味的参水报告",
   "main": "app.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && cp ./index.html ./public/index.html",
     "installType": "typesync"
   },
   "dependencies": {
