@@ -1,7 +1,6 @@
-// @flow
-/* eslint-disable no-unused-vars */
+import { compact, trim } from 'lodash';
 
-const 正面短语 = {
+export const 正面短语 = {
   推进工作: 认真学习`
     以求真务实的态度，积极推进{{正面工作}}制度化。
     以为领导决策服务为目的，积极推进{{正面工作}}正常化。
@@ -17,7 +16,7 @@ const 正面短语 = {
   `,
 };
 
-const 负面短语 = {
+export const 负面短语 = {
   大力抨击: 认真学习`
     对于{{负面工作}}，社会舆论一片哗然。
     这段时间以来，各种关于{{负面工作}}的奇怪论调纷纷出笼。
@@ -35,7 +34,7 @@ const 负面短语 = {
   `,
 };
 
-const 中立内容 = {
+export const 中立内容 = {
   句首: 认真学习`
     众所周知，
     毋庸讳言，
@@ -44,3 +43,21 @@ const 中立内容 = {
     无论观点如何多元，总会有一些基本共识，
   `,
 };
+
+/** 通过认真领会精神，把一个包含学习资料的字符串变为 UNIST（此处为 NLCST）节点，并保留待填入具体内容的槽，成为一个模板 CST */
+function 认真学习(共产中文模板: TemplateStringsArray) {
+  // 取出字符串内容，并去掉空行和空白
+  const lines = compact(compact(共产中文模板[0].split('\n')).map((line) => trim(line)));
+  const unistWordNodes = lines.map((line) => {
+    // 把模板变成 UNIST 节点
+    const leafTemplateFragmentNodes = line.split(/({{正面工作}}|{{负面工作}})/g).map((value) => ({
+      type: 'TextNode',
+      value,
+      // 如果是{{正面工作}}这样的节点，则标注为待填的槽（slot 是我们自定义的元信息），等待之后替换为具体内容
+      slot: value === '{{正面工作}}' || value === '{{负面工作}}' ? value : undefined,
+    }));
+    return { type: 'WordNode', children: leafTemplateFragmentNodes };
+  });
+  const sentenceUnistNode = { type: 'SentenceNode', children: unistWordNodes };
+  return sentenceUnistNode;
+}

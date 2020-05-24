@@ -1,5 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import 撰写报告 from './撰写报告';
+
 class App extends React.Component {
-  state = { 正面工作: '', 负面工作: '', 报告: null }
+  state = { 正面工作: '', 负面工作: '', 报告: null };
 
   render() {
     return (
@@ -26,9 +31,9 @@ class App extends React.Component {
         </fieldset>
         <article>{this.state.报告}</article>
       </div>
-    )
+    );
   }
 }
 
-const domContainer = document.querySelector('#app')
-ReactDOM.render(<App />, domContainer)
+const domContainer = document.querySelector('#app');
+ReactDOM.render(<App />, domContainer);
