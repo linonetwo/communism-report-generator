@@ -1,0 +1,9 @@
+{
+  "name": "communism-report-generator",
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "github": {
+    "silent": true
+  }
+}
