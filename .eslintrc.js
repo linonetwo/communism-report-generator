@@ -52,15 +52,8 @@ module.exports = {
     'plugin:import/typescript',
   ],
   plugins: ['@typescript-eslint/eslint-plugin', 'react', 'html', 'babel', 'react', 'unicorn', 'import'],
-  globals: {
-    newrelic: true,
-    __nr_require: true,
-  },
   env: {
     browser: true,
-    node: true,
     es6: true,
-    mocha: true,
-    node: true,
   },
 }
