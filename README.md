@@ -17,3 +17,7 @@
 - 狗屁不通生成器 https://github.com/menzi11/BullshitGenerator
 - 自然语言具体语法树 https://github.com/syntax-tree/nlcst
 - 通用语法树 https://github.com/syntax-tree/unist
+
+---
+
+继任者：「『模板生成器』生成器」 https://github.com/linonetwo/template-based-generator-template
